@@ -84,76 +84,82 @@ export default function Vault() {
       )}
 
       {/* ================= GRID ================= */}
-      <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {filtered.map((p) => (
-          <div
-            key={p._id}
-            className="group rounded-2xl bg-base-100 border border-base-200 shadow-md hover:shadow-2xl transition-all duration-300"
-          >
-            <div className="p-5 space-y-4">
-              {/* SITE HEADER */}
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 p-2 rounded-lg">
-                    <Globe size={18} className="text-primary" />
-                  </div>
+      <div className="w-full px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          {filtered.map((p) => (
+            <div
+              key={p._id}
+              className="group w-full rounded-2xl bg-base-100 border border-base-200 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden wrap-break-word"
+            >
+              <div className="p-5 space-y-4">
+                {/* SITE HEADER */}
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-primary/10 p-2 rounded-lg">
+                      <Globe size={18} className="text-primary" />
+                    </div>
 
-                  <div>
-                    <h2 className="font-semibold text-lg">{p.siteName}</h2>
-                    <span className="text-xs opacity-60">
-                      {p.category || "General"}
-                    </span>
+                    <div>
+                      <h2 className="font-semibold text-lg">{p.siteName}</h2>
+                      <span className="text-xs opacity-60">
+                        {p.category || "General"}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* USERNAME */}
-              <div className="bg-base-200 rounded-xl px-4 py-2 flex justify-between items-center">
-                <span className="truncate text-sm">{p.username}</span>
-
-                <button
-                  className="opacity-60 hover:opacity-100 transition"
-                  onClick={() => copy(p.username)}
-                >
-                  <Copy size={16} />
-                </button>
-              </div>
-
-              {/* PASSWORD */}
-              <div className="bg-base-200 rounded-xl px-4 py-2 flex justify-between items-center">
-                <span className="font-mono tracking-widest text-sm">
-                  {visible[p._id] ? p.password : "•••• •••• ••••"}
-                </span>
-
-                <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition">
-                  <button
-                    onClick={() => toggleVisibility(p._id)}
-                    className="hover:text-primary"
-                  >
-                    {visible[p._id] ? <EyeOff size={16} /> : <Eye size={16} />}
-                  </button>
+                {/* USERNAME */}
+                <div className="bg-base-200 rounded-xl px-4 py-2 flex justify-between items-center">
+                  <span className="truncate text-sm">{p.username}</span>
 
                   <button
-                    onClick={() => copy(p.password)}
-                    className="hover:text-primary"
+                    className="opacity-60 hover:opacity-100 transition"
+                    onClick={() => copy(p.username)}
                   >
                     <Copy size={16} />
                   </button>
                 </div>
-              </div>
 
-              {/* ACTIONS */}
-              <div className="flex justify-end pt-2">
-                <button
-                  className="btn btn-error btn-circle btn-xs btn-outline gap-2"
-                  onClick={() => remove(p._id)}
-                >
-                  <Trash2 size={16} />
-                </button>
+                {/* PASSWORD */}
+                <div className="bg-base-200 rounded-xl px-4 py-2 flex justify-between items-center">
+                  <span className="font-mono tracking-widest text-sm line-clamp-1">
+                    {visible[p._id] ? p.password : "•••• •••• ••••"}
+                  </span>
+
+                  <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition">
+                    <button
+                      onClick={() => toggleVisibility(p._id)}
+                      className="hover:text-primary"
+                    >
+                      {visible[p._id] ? (
+                        <EyeOff size={16} />
+                      ) : (
+                        <Eye size={16} />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={() => copy(p.password)}
+                      className="hover:text-primary"
+                    >
+                      <Copy size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* ACTIONS */}
+                <div className="flex justify-end pt-2">
+                  <button
+                    className="btn btn-error btn-circle btn-xs btn-outline gap-2"
+                    onClick={() => remove(p._id)}
+                  >
+                    <Trash2 size={16} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
