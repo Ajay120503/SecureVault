@@ -85,12 +85,18 @@ export default function Users() {
                   {/* USER */}
                   <td>
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary/15 text-primary flex items-center justify-center font-bold">
-                        {u.name?.[0] || "U"}
+                      {/* Avatar */}
+                      <div className="shrink-0">
+                        <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center font-bold text-primary select-none">
+                          {u.name?.[0]?.toUpperCase() || "U"}
+                        </div>
                       </div>
 
-                      <div>
-                        <div className="font-semibold">{u.name}</div>
+                      {/* User Info */}
+                      <div className="min-w-0">
+                        <div className="font-semibold line-clamp-1">
+                          {u.name}
+                        </div>
                         <div className="text-xs opacity-60">
                           ID: {u._id.slice(-6)}
                         </div>
