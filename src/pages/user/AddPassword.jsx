@@ -174,7 +174,9 @@ export default function AddPassword() {
             </button>
           </div>
 
-          <span className="text-xs opacity-60">14 characters recommended</span>
+          <span className="text-xs opacity-60 line-clamp-1">
+            14 characters recommended
+          </span>
         </div>
 
         {/* ================= SUBMIT ================= */}
