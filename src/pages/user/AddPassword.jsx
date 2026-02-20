@@ -58,8 +58,8 @@ export default function AddPassword() {
         username: "",
         password: "",
       });
-    } catch {
-      toast.error("Failed to save password");
+    } catch(err) {
+      toast.error(err?.response?.data?.message || "Failed to save password");
     }
   };
 
