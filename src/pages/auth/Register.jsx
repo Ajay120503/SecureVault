@@ -25,7 +25,7 @@ export default function Register() {
       toast.success("OTP sent to your email");
       navigate("/verify");
     } catch (err) {
-      toast.error(err?.response?.data?.msg || "Registration failed");
+      toast.error(err?.response?.data?.message || "Registration failed");
     } finally {
       setLoading(false);
     }
