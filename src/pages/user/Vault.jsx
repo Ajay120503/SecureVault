@@ -50,7 +50,7 @@ export default function Vault() {
   );
 
   return (
-    <div className="p-6 space-y-8 max-w-7xl mx-auto">
+    <div className="lg:p-6 p-4 space-y-8 max-w-7xl mx-auto">
       {/* ================= HEADER ================= */}
       <div className="flex flex-col md:flex-row justify-between gap-4">
         <h1 className="text-3xl font-bold flex items-center gap-3">
@@ -84,7 +84,7 @@ export default function Vault() {
       )}
 
       {/* ================= GRID ================= */}
-      <div className="w-full px-4 sm:px-0">
+      <div className="w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
           {filtered.map((p) => (
             <div
