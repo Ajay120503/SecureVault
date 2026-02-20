@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { loginUser } from "../../api/auth.api";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState({
@@ -121,9 +121,9 @@ export default function Login() {
         {/* FOOTER */}
         <p className="text-center text-sm">
           New user?{" "}
-          <a href="/register" className="link link-primary font-semibold">
+          <Link to="/register" className="link link-primary font-semibold">
             Create account
-          </a>
+          </Link>
         </p>
       </form>
     </div>
