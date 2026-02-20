@@ -45,6 +45,10 @@ export default function VerifyOTP() {
         <div className="text-center">
           <h2 className="text-3xl font-bold">Verify OTP</h2>
           <p className="text-sm opacity-70">Enter the OTP sent to your email</p>
+          <p className="text-sm opacity-70 mt-1">
+            Enter the OTP sent to{" "}
+            <strong>{localStorage.getItem("verifyEmail")}</strong>
+          </p>
         </div>
 
         {/* OTP Input */}
